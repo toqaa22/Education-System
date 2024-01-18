@@ -90,8 +90,8 @@ class CoursePage extends StatelessWidget {
                     ),
                     const Expanded(
                       child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
                           Text(
                             "نبذة عامة ",
@@ -101,6 +101,8 @@ class CoursePage extends StatelessWidget {
                                 color: ColorsAsset.kPrimary),
                           ),
                           Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            crossAxisAlignment: CrossAxisAlignment.end,
                             children: [
                               Text(
                                 "اسم الاستاذ بالكامل",
@@ -118,6 +120,8 @@ class CoursePage extends StatelessWidget {
                             ],
                           ),
                           Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            crossAxisAlignment: CrossAxisAlignment.end,
                             children: [
                               Text(
                                 "بكالوريوس في تعليم اللغة الإنجليزية",
@@ -135,6 +139,8 @@ class CoursePage extends StatelessWidget {
                             ],
                           ),
                           Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            crossAxisAlignment: CrossAxisAlignment.end,
                             children: [
                               Text(
                                 " لديه خبرة تدريسية تزيد عن 5 سنوات في تدريس اللغة الانجليزية",
@@ -154,19 +160,7 @@ class CoursePage extends StatelessWidget {
                         ],
                       ),
                     ),
-                    ElevatedButton(
-                      onPressed: () {
-                        Navigator.of(context).push(MaterialPageRoute(builder: (context) => const PaymentPage(),));
-                      },
-                      style: ElevatedButton.styleFrom(
-                        foregroundColor: Colors.white,
-                        backgroundColor: ColorsAsset.kPrimary,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                      ),
-                      child: const Text('اشترك الان'),
-                    ),
+
                   ],
                 ),
               ),
@@ -263,6 +257,25 @@ class CoursePage extends StatelessWidget {
                     child: Text('امتحان شامل'),
                   ),
                 ],
+              ),
+            ),
+            const SizedBox(
+              height: 25,
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) => const PaymentPage(),));
+              },
+              style: ElevatedButton.styleFrom(
+                foregroundColor: Colors.white,
+                backgroundColor: ColorsAsset.kPrimary,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+              ),
+              child: const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 12.0,vertical: 8),
+                child: Text('اشترك الان'),
               ),
             ),
           ],

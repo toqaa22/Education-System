@@ -1,6 +1,11 @@
 import 'package:education_system/shared/utils/colors.dart';
-import 'package:education_system/student/view_course/view_course_page.dart';
+import 'package:education_system/student/home_page/student_home_page.dart';
 import 'package:flutter/material.dart';
+import "package:flutter_localizations/flutter_localizations.dart";
+
+import 'components/locale/applocale.dart';
+import 'shared/constants.dart';
+
 
 
 void main() {
@@ -23,7 +28,28 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home:  const ViewCoursePage(),
+      home:  const StudentHomePage(),
+      localizationsDelegates: const [
+        AppLocale.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: const [
+        Locale("en", ""),
+        Locale("ar", ""),
+      ],
+      localeResolutionCallback: (currentLang, supportLang) {
+        if (currentLang != null) {
+          for (Locale locale in supportLang) {
+            if (locale.languageCode == currentLang.languageCode) {
+              return currentLang;
+            }
+          }
+        }
+        return supportLang.first;
+      },
+      locale:  Locale(lang),
     );
   }
 }

@@ -2,6 +2,8 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_indicator/carousel_indicator.dart';
 
+import '../../components/locale/applocale.dart';
+import '../../shared/constants.dart';
 import '../../shared/utils/colors.dart';
 import '../course_page/course_page.dart';
 
@@ -26,8 +28,10 @@ class StudentHomePageState extends State<StudentHomePage> {
     'الصف الثالث'
   ];
 
+
   int _current = 0;
   final CarouselController _carouselController = CarouselController();
+
 
   @override
   Widget build(BuildContext context) {
@@ -40,17 +44,45 @@ class StudentHomePageState extends State<StudentHomePage> {
             const CircleAvatar(
               backgroundImage: AssetImage("assets/images/profile purple.png"),
             ),
+            TextButton(
+              onPressed: () {
+                if (lang == "en") {
+
+                 setState(() {
+                   lang = "ar";
+                   print(lang);
+                 });
+                } else {
+
+                  setState(() {
+                    lang = "en";
+                    print(lang);
+                  });
+                }
+
+              },
+              child:  Text(
+                '${getLang(context,"Change Language")}'
+                ,
+                style: const TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.bold,
+                    color: ColorsAsset.kPrimary),
+              ),
+            ),
+
             const SizedBox(width: 10),
-            const Text(
-              "اسم الطالب",
-              style: TextStyle(fontSize: 12),
+             Text(
+              '${getLang(context,"Student Name")}',
+              style: const TextStyle(fontSize: 12),
             ),
             const SizedBox(width: 50),
             TextButton(
               onPressed: () {},
-              child: const Text(
-                "كورساتي",
-                style: TextStyle(
+              child:  Text(
+                '${getLang(context,"My Subjects")}'
+               ,
+                style: const TextStyle(
                     fontSize: 12,
                     fontWeight: FontWeight.bold,
                     color: ColorsAsset.kPrimary),
@@ -59,9 +91,9 @@ class StudentHomePageState extends State<StudentHomePage> {
             const SizedBox(width: 5),
             TextButton(
               onPressed: () {},
-              child: const Text(
-                "درجاتي",
-                style: TextStyle(
+              child:  Text(
+                '${getLang(context,"My Grades")}',
+                style: const TextStyle(
                     fontSize: 12,
                     fontWeight: FontWeight.bold,
                     color: ColorsAsset.kPrimary),
@@ -70,9 +102,9 @@ class StudentHomePageState extends State<StudentHomePage> {
             const SizedBox(width: 5),
             TextButton(
               onPressed: () {},
-              child: const Text(
-                "واجباتي",
-                style: TextStyle(
+              child:  Text(
+                '${getLang(context,"Assignments")}',
+                style: const TextStyle(
                     fontSize: 12,
                     fontWeight: FontWeight.bold,
                     color: ColorsAsset.kPrimary),
@@ -146,23 +178,23 @@ class StudentHomePageState extends State<StudentHomePage> {
               width: MediaQuery.of(context).size.width * 0.5,
               child: DropdownButtonFormField<String>(
                 value: dropdownValue,
-                decoration: const InputDecoration(
-                  border: OutlineInputBorder(
+                decoration:  InputDecoration(
+                  border: const OutlineInputBorder(
                     borderSide: BorderSide(
                       color: ColorsAsset.kPrimary,
                     ),
                   ),
-                  enabledBorder: OutlineInputBorder(
+                  enabledBorder: const OutlineInputBorder(
                     borderSide: BorderSide(
                       color: ColorsAsset.kPrimary,
                     ),
                   ),
-                  focusedBorder: OutlineInputBorder(
+                  focusedBorder: const OutlineInputBorder(
                     borderSide: BorderSide(
                       color: ColorsAsset.kPrimary,
                     ),
                   ),
-                  labelText: "اختر السنة الدراسية",
+                  labelText: '${getLang(context,"Select the academic year")}',
                 ),
                 items: dropdownItems.map((String value) {
                   return DropdownMenuItem<String>(
@@ -180,16 +212,17 @@ class StudentHomePageState extends State<StudentHomePage> {
             const SizedBox(
               height: 10,
             ),
-            const Text(
-              "هيا بنا نبدا",
-              style: TextStyle(
+             Text(
+              '${getLang(context,"Let's Start Now")}'
+            ,
+              style: const TextStyle(
                   fontSize: 30,
                   fontWeight: FontWeight.bold,
                   color: ColorsAsset.kPrimary),
             ),
-            const Text(
-              "مجموعة من امهر الاساتذة الموجودين حاليا",
-              style: TextStyle(fontSize: 15, color: ColorsAsset.kPrimary),
+             Text(
+              '${getLang(context,"A group of the most skilled professors")}',
+              style: const TextStyle(fontSize: 15, color: ColorsAsset.kPrimary),
             ),
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.5,
