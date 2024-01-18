@@ -1,9 +1,9 @@
-import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/material.dart';
 import 'package:carousel_indicator/carousel_indicator.dart';
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:education_system/shared/main_cubit/main_cubit.dart';
+import 'package:flutter/material.dart';
 
 import '../../components/locale/applocale.dart';
-import '../../shared/constants.dart';
 import '../../shared/utils/colors.dart';
 import '../course_page/course_page.dart';
 
@@ -22,16 +22,10 @@ class StudentHomePageState extends State<StudentHomePage> {
     "assets/images/Blue and Yellow University Etiquette Professional Presentation (6).png",
   ];
   String dropdownValue = 'الصف الاول';
-  final List<String> dropdownItems = [
-    'الصف الاول',
-    'الصف الثاني',
-    'الصف الثالث'
-  ];
-
+  final List<String> dropdownItems = ['الصف الاول', 'الصف الثاني', 'الصف الثالث'];
 
   int _current = 0;
   final CarouselController _carouselController = CarouselController();
-
 
   @override
   Widget build(BuildContext context) {
@@ -46,68 +40,44 @@ class StudentHomePageState extends State<StudentHomePage> {
             ),
             TextButton(
               onPressed: () {
-                if (lang == "en") {
-
-                 setState(() {
-                   lang = "ar";
-                   print(lang);
-                 });
+                if (MainCubit.get(context).lang == "en") {
+                  MainCubit.get(context).changeLang('ar');
                 } else {
-
-                  setState(() {
-                    lang = "en";
-                    print(lang);
-                  });
+                  MainCubit.get(context).changeLang('en');
                 }
-
               },
-              child:  Text(
-                '${getLang(context,"Change Language")}'
-                ,
-                style: const TextStyle(
-                    fontSize: 12,
-                    fontWeight: FontWeight.bold,
-                    color: ColorsAsset.kPrimary),
+              child: Text(
+                '${getLang(context, "Change Language")}',
+                style: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold, color: ColorsAsset.kPrimary),
               ),
             ),
-
             const SizedBox(width: 10),
-             Text(
-              '${getLang(context,"Student Name")}',
+            Text(
+              '${getLang(context, "Student Name")}',
               style: const TextStyle(fontSize: 12),
             ),
             const SizedBox(width: 50),
             TextButton(
               onPressed: () {},
-              child:  Text(
-                '${getLang(context,"My Subjects")}'
-               ,
-                style: const TextStyle(
-                    fontSize: 12,
-                    fontWeight: FontWeight.bold,
-                    color: ColorsAsset.kPrimary),
+              child: Text(
+                '${getLang(context, "My Subjects")}',
+                style: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold, color: ColorsAsset.kPrimary),
               ),
             ),
             const SizedBox(width: 5),
             TextButton(
               onPressed: () {},
-              child:  Text(
-                '${getLang(context,"My Grades")}',
-                style: const TextStyle(
-                    fontSize: 12,
-                    fontWeight: FontWeight.bold,
-                    color: ColorsAsset.kPrimary),
+              child: Text(
+                '${getLang(context, "My Grades")}',
+                style: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold, color: ColorsAsset.kPrimary),
               ),
             ),
             const SizedBox(width: 5),
             TextButton(
               onPressed: () {},
-              child:  Text(
-                '${getLang(context,"Assignments")}',
-                style: const TextStyle(
-                    fontSize: 12,
-                    fontWeight: FontWeight.bold,
-                    color: ColorsAsset.kPrimary),
+              child: Text(
+                '${getLang(context, "Assignments")}',
+                style: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold, color: ColorsAsset.kPrimary),
               ),
             ),
           ],
@@ -178,7 +148,7 @@ class StudentHomePageState extends State<StudentHomePage> {
               width: MediaQuery.of(context).size.width * 0.5,
               child: DropdownButtonFormField<String>(
                 value: dropdownValue,
-                decoration:  InputDecoration(
+                decoration: InputDecoration(
                   border: const OutlineInputBorder(
                     borderSide: BorderSide(
                       color: ColorsAsset.kPrimary,
@@ -194,7 +164,7 @@ class StudentHomePageState extends State<StudentHomePage> {
                       color: ColorsAsset.kPrimary,
                     ),
                   ),
-                  labelText: '${getLang(context,"Select the academic year")}',
+                  labelText: '${getLang(context, "Select the academic year")}',
                 ),
                 items: dropdownItems.map((String value) {
                   return DropdownMenuItem<String>(
@@ -212,16 +182,12 @@ class StudentHomePageState extends State<StudentHomePage> {
             const SizedBox(
               height: 10,
             ),
-             Text(
-              '${getLang(context,"Let's Start Now")}'
-            ,
-              style: const TextStyle(
-                  fontSize: 30,
-                  fontWeight: FontWeight.bold,
-                  color: ColorsAsset.kPrimary),
+            Text(
+              '${getLang(context, "Let's Start Now")}',
+              style: const TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: ColorsAsset.kPrimary),
             ),
-             Text(
-              '${getLang(context,"A group of the most skilled professors")}',
+            Text(
+              '${getLang(context, "A group of the most skilled professors")}',
               style: const TextStyle(fontSize: 15, color: ColorsAsset.kPrimary),
             ),
             SizedBox(
