@@ -1,8 +1,8 @@
-import 'package:education_system/student/payment/widgets/my_text_field.dart';
+import 'package:education_system/student/features/payment/widgets/my_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../shared/utils/colors.dart';
+import '../../../shared/utils/colors.dart';
 import 'manager/payment_cubit.dart';
 
 class PaymentPage extends StatelessWidget {

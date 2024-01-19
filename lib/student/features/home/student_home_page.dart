@@ -1,11 +1,12 @@
 import 'package:carousel_indicator/carousel_indicator.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:education_system/shared/main_cubit/main_cubit.dart';
 import 'package:flutter/material.dart';
 
-import '../../components/locale/applocale.dart';
-import '../../shared/utils/colors.dart';
-import '../course_page/course_page.dart';
+
+import '../../../components/locale/applocale.dart';
+import '../../../shared/utils/colors.dart';
+import '../../widgets/cutom_appbar.dart';
+import '../course_details/course_page.dart';
 
 class StudentHomePage extends StatefulWidget {
   const StudentHomePage({super.key});
@@ -30,65 +31,7 @@ class StudentHomePageState extends State<StudentHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: ColorsAsset.kLight2,
-        title: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            const CircleAvatar(
-              backgroundImage: AssetImage("assets/images/profile purple.png"),
-            ),
-            TextButton(
-              onPressed: () {
-                if (MainCubit.get(context).lang == "en") {
-                  MainCubit.get(context).changeLang('ar');
-                } else {
-                  MainCubit.get(context).changeLang('en');
-                }
-              },
-              child: Text(
-                '${getLang(context, "Change Language")}',
-                style: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold, color: ColorsAsset.kPrimary),
-              ),
-            ),
-            const SizedBox(width: 10),
-            Text(
-              '${getLang(context, "Student Name")}',
-              style: const TextStyle(fontSize: 12),
-            ),
-            const SizedBox(width: 50),
-            TextButton(
-              onPressed: () {},
-              child: Text(
-                '${getLang(context, "My Subjects")}',
-                style: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold, color: ColorsAsset.kPrimary),
-              ),
-            ),
-            const SizedBox(width: 5),
-            TextButton(
-              onPressed: () {},
-              child: Text(
-                '${getLang(context, "My Grades")}',
-                style: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold, color: ColorsAsset.kPrimary),
-              ),
-            ),
-            const SizedBox(width: 5),
-            TextButton(
-              onPressed: () {},
-              child: Text(
-                '${getLang(context, "Assignments")}',
-                style: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold, color: ColorsAsset.kPrimary),
-              ),
-            ),
-          ],
-        ),
-        actions: [
-          Padding(
-            padding: const EdgeInsets.all(5.0),
-            child: Image.asset("assets/images/logo2.png"),
-          ),
-        ],
-      ),
+      appBar: const CustomAppbar(),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -219,3 +162,5 @@ class StudentHomePageState extends State<StudentHomePage> {
     );
   }
 }
+
+

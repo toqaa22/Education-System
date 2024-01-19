@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../shared/utils/colors.dart';
+import '../../../shared/utils/colors.dart';
+import '../../widgets/cutom_appbar.dart';
 import '../payment/payment_page.dart';
 
 class CoursePage extends StatelessWidget {
@@ -9,61 +10,7 @@ class CoursePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: ColorsAsset.kLight2,
-        title: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            const CircleAvatar(
-              backgroundImage: AssetImage("assets/images/profile purple.png"),
-            ),
-            const SizedBox(width: 10),
-            const Text(
-              "اسم الطالب",
-              style: TextStyle(fontSize: 12),
-            ),
-            const SizedBox(width: 50),
-            TextButton(
-              onPressed: () {},
-              child: const Text(
-                "كورساتي",
-                style: TextStyle(
-                    fontSize: 12,
-                    fontWeight: FontWeight.bold,
-                    color: ColorsAsset.kPrimary),
-              ),
-            ),
-            const SizedBox(width: 5),
-            TextButton(
-              onPressed: () {},
-              child: const Text(
-                "درجاتي",
-                style: TextStyle(
-                    fontSize: 12,
-                    fontWeight: FontWeight.bold,
-                    color: ColorsAsset.kPrimary),
-              ),
-            ),
-            const SizedBox(width: 5),
-            TextButton(
-              onPressed: () {},
-              child: const Text(
-                "واجباتي",
-                style: TextStyle(
-                    fontSize: 12,
-                    fontWeight: FontWeight.bold,
-                    color: ColorsAsset.kPrimary),
-              ),
-            ),
-          ],
-        ),
-        actions: [
-          Padding(
-            padding: const EdgeInsets.all(5.0),
-            child: Image.asset("assets/images/logo2.png"),
-          ),
-        ],
-      ),
+      appBar: const CustomAppbar(),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -90,8 +37,8 @@ class CoursePage extends StatelessWidget {
                     ),
                     const Expanded(
                       child: Column(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        crossAxisAlignment: CrossAxisAlignment.end,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
                             "نبذة عامة ",
@@ -101,8 +48,8 @@ class CoursePage extends StatelessWidget {
                                 color: ColorsAsset.kPrimary),
                           ),
                           Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            crossAxisAlignment: CrossAxisAlignment.end,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
                                 "اسم الاستاذ بالكامل",
@@ -120,8 +67,8 @@ class CoursePage extends StatelessWidget {
                             ],
                           ),
                           Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            crossAxisAlignment: CrossAxisAlignment.end,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
                                 "بكالوريوس في تعليم اللغة الإنجليزية",
@@ -139,8 +86,8 @@ class CoursePage extends StatelessWidget {
                             ],
                           ),
                           Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            crossAxisAlignment: CrossAxisAlignment.end,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
                                 " لديه خبرة تدريسية تزيد عن 5 سنوات في تدريس اللغة الانجليزية",
@@ -160,7 +107,6 @@ class CoursePage extends StatelessWidget {
                         ],
                       ),
                     ),
-
                   ],
                 ),
               ),
@@ -180,11 +126,15 @@ class CoursePage extends StatelessWidget {
               child: const ExpansionTile(
                 shape: OutlineInputBorder(
                     borderSide: BorderSide(
-                      color: ColorsAsset.kPrimary,
-                    )),
+                  color: ColorsAsset.kPrimary,
+                )),
                 backgroundColor: ColorsAsset.kLight,
                 expandedAlignment: Alignment.topLeft,
-                title: Text('الشهر الاول',style: TextStyle(fontWeight: FontWeight.bold,color:ColorsAsset.kPrimary),),
+                title: Text(
+                  'الشهر الاول',
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold, color: ColorsAsset.kPrimary),
+                ),
                 children: <Widget>[
                   Padding(
                     padding: EdgeInsets.all(8.0),
@@ -209,11 +159,15 @@ class CoursePage extends StatelessWidget {
               child: const ExpansionTile(
                 shape: OutlineInputBorder(
                     borderSide: BorderSide(
-                      color: ColorsAsset.kPrimary,
-                    )),
+                  color: ColorsAsset.kPrimary,
+                )),
                 backgroundColor: ColorsAsset.kLight,
                 expandedAlignment: Alignment.topLeft,
-                title: Text('الشهر الثاني',style: TextStyle(fontWeight: FontWeight.bold,color:ColorsAsset.kPrimary),),
+                title: Text(
+                  'الشهر الثاني',
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold, color: ColorsAsset.kPrimary),
+                ),
                 children: <Widget>[
                   Padding(
                     padding: EdgeInsets.all(8.0),
@@ -238,11 +192,15 @@ class CoursePage extends StatelessWidget {
               child: const ExpansionTile(
                 shape: OutlineInputBorder(
                     borderSide: BorderSide(
-                      color: ColorsAsset.kPrimary,
-                    )),
+                  color: ColorsAsset.kPrimary,
+                )),
                 backgroundColor: ColorsAsset.kLight,
                 expandedAlignment: Alignment.topLeft,
-                title: Text('الشهر الثالث',style: TextStyle(fontWeight: FontWeight.bold,color:ColorsAsset.kPrimary),),
+                title: Text(
+                  'الشهر الثالث',
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold, color: ColorsAsset.kPrimary),
+                ),
                 children: <Widget>[
                   Padding(
                     padding: EdgeInsets.all(8.0),
@@ -264,7 +222,9 @@ class CoursePage extends StatelessWidget {
             ),
             ElevatedButton(
               onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(builder: (context) => const PaymentPage(),));
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => const PaymentPage(),
+                ));
               },
               style: ElevatedButton.styleFrom(
                 foregroundColor: Colors.white,
@@ -274,7 +234,7 @@ class CoursePage extends StatelessWidget {
                 ),
               ),
               child: const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 12.0,vertical: 8),
+                padding: EdgeInsets.symmetric(horizontal: 12.0, vertical: 8),
                 child: Text('اشترك الان'),
               ),
             ),
