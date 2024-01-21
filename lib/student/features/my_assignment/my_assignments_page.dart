@@ -1,41 +1,33 @@
-import 'package:education_system/student/features/view_course/view_course_page.dart';
 import 'package:flutter/material.dart';
 
 import '../../../shared/utils/colors.dart';
 import '../../widgets/cutom_appbar.dart';
+import 'assignments.dart';
 
-class MySubjectsPage extends StatelessWidget {
-  const MySubjectsPage({super.key});
+class MyAssigmentsPage extends StatelessWidget {
+  const MyAssigmentsPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const CustomAppbar(),
-      body:
-      Padding(
-        padding: const EdgeInsets.symmetric(vertical: 12.0,horizontal: 30),
-        child: GridView.builder(
-          itemCount: 10,
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 4,
-            crossAxisSpacing: 20,
-            mainAxisSpacing: 20,
-          ),
-          itemBuilder: (context, index) {
-
-            return  Padding(
+      body: ListView.builder(
+        itemCount: 10,
+        itemBuilder: (context, index) {
+          return Center(
+            child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Container(
-                width: MediaQuery.of(context).size.width * 0.3,
+                width: MediaQuery.of(context).size.width * 0.6,
                 padding: const EdgeInsets.all(12),
                 color: ColorsAsset.kLight,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Container(
-                      height: MediaQuery.of(context).size.height * 0.2,
-                      width: MediaQuery.of(context).size.width * 0.15,
+                      height: 120,
+                      width: 180,
                       decoration: const BoxDecoration(
                           image: DecorationImage(
                               fit: BoxFit.cover,
@@ -46,14 +38,22 @@ class MySubjectsPage extends StatelessWidget {
                     ),
                     Expanded(
                       child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           const Text(
                             "English Course Second year of secondary school ",
                             style: TextStyle(
+                                fontSize: 18,
                                 fontWeight: FontWeight.bold,
                                 color: ColorsAsset.kTextcolor),
+                          ),
+                          const Text(
+                            "Enrolled",
+                            style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                                color: ColorsAsset.kPrimary),
                           ),
                           const SizedBox(
                             height: 15,
@@ -61,7 +61,7 @@ class MySubjectsPage extends StatelessWidget {
                           ElevatedButton(
                             onPressed: () {
                               Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => const ViewCoursePage(),
+                                builder: (context) => const ChooseCourseAssignment(),
                               ));
                             },
                             style: ElevatedButton.styleFrom(
@@ -74,7 +74,7 @@ class MySubjectsPage extends StatelessWidget {
                             child: const Padding(
                               padding: EdgeInsets.symmetric(
                                   horizontal: 12.0, vertical: 8),
-                              child: Text('Start the Course'),
+                              child: Text('See Available Assignments'),
                             ),
                           ),
                         ],
@@ -83,11 +83,10 @@ class MySubjectsPage extends StatelessWidget {
                   ],
                 ),
               ),
-            );
-          },
-        ),
+            ),
+          );
+        },
       ),
-
     );
   }
 }

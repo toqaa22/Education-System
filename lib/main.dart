@@ -1,10 +1,10 @@
 import 'package:education_system/shared/main_cubit/main_cubit.dart';
 import 'package:education_system/shared/utils/colors.dart';
+import 'package:education_system/student/features/home/student_home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import "package:flutter_localizations/flutter_localizations.dart";
 
-import 'auth/login/login page.dart';
 import 'components/locale/applocale.dart';
 
 void main() {
@@ -25,6 +25,11 @@ class MyApp extends StatelessWidget {
             debugShowCheckedModeBanner: false,
             title: 'Flutter Demo',
             theme: ThemeData(
+              appBarTheme: const AppBarTheme(
+                iconTheme: IconThemeData(
+                  color: ColorsAsset.kbackgorund
+                )
+              ),
               expansionTileTheme: ExpansionTileThemeData(
                   backgroundColor: ColorsAsset.kLightPurble,
                   childrenPadding: const EdgeInsets.all(10),
@@ -32,7 +37,7 @@ class MyApp extends StatelessWidget {
               colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
               useMaterial3: true,
             ),
-            home:   const LoginPage(),
+            home:   const StudentHomePage(),
             localizationsDelegates: const [
               AppLocale.delegate,
               GlobalMaterialLocalizations.delegate,

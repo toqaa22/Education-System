@@ -1,3 +1,5 @@
+import 'package:education_system/student/features/home/student_home_page.dart';
+import 'package:education_system/student/features/my_assignment/my_assignments_page.dart';
 import 'package:education_system/student/features/my_subjects/my_subjects_page.dart';
 import 'package:flutter/material.dart';
 
@@ -5,6 +7,7 @@ import '../../components/locale/applocale.dart';
 import '../../shared/main_cubit/main_cubit.dart';
 import '../../shared/utils/colors.dart';
 import '../features/my_grades/view/my_grades_page.dart';
+import '../features/profile/profile_page.dart';
 
 class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
   const CustomAppbar({super.key});
@@ -12,27 +15,42 @@ class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      centerTitle: false,
       backgroundColor: ColorsAsset.kLight2,
       title: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          const CircleAvatar(
-            backgroundImage: AssetImage("assets/images/profile purple.png"),
-          ),
-          TextButton(
-            onPressed: () {
+          GestureDetector(
+            onTap: (){
               if (MainCubit.get(context).lang == "en") {
                 MainCubit.get(context).changeLang('ar');
               } else {
                 MainCubit.get(context).changeLang('en');
               }
             },
-            child: Text(
-              '${getLang(context, "Change Language")}',
-              style: const TextStyle(
-                  fontSize: 12,
-                  fontWeight: FontWeight.bold,
-                  color: ColorsAsset.kPrimary),
+            child: Container(
+              padding: const EdgeInsets.all(12),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                  border: Border.all(color: ColorsAsset.kPrimary),
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child:Text(
+                '${getLang(context, "EN")}',
+                style: const TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.bold,
+                    color: ColorsAsset.kPrimary),
+              ) ,
+            ),
+          ),
+          const SizedBox(width: 10),
+          GestureDetector(
+            onTap: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context) => const ProfilePage(),));
+            },
+            child: const CircleAvatar(
+              backgroundImage: AssetImage("assets/images/profile purple.png"),
             ),
           ),
           const SizedBox(width: 10),
@@ -43,7 +61,22 @@ class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
           const SizedBox(width: 50),
           TextButton(
             onPressed: () {
-              Navigator.of(context).push(MaterialPageRoute(
+              Navigator.of(context).pushReplacement(MaterialPageRoute(
+                builder: (context) => const StudentHomePage(),
+              ));
+            },
+            child: Text(
+              '${getLang(context, "Home")}',
+              style: const TextStyle(
+                  fontSize: 12,
+                  fontWeight: FontWeight.bold,
+                  color: ColorsAsset.kPrimary),
+            ),
+          ),
+          const SizedBox(width: 5),
+          TextButton(
+            onPressed: () {
+              Navigator.of(context).pushReplacement(MaterialPageRoute(
                 builder: (context) => const MySubjectsPage(),
               ));
             },
@@ -58,7 +91,7 @@ class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
           const SizedBox(width: 5),
           TextButton(
             onPressed: () {
-              Navigator.of(context).push(MaterialPageRoute(
+              Navigator.of(context).pushReplacement(MaterialPageRoute(
                 builder: (context) => const MyGradesPage(),
               ));
             },
@@ -72,7 +105,11 @@ class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
           ),
           const SizedBox(width: 5),
           TextButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).pushReplacement(MaterialPageRoute(
+                builder: (context) => const MyAssigmentsPage(),
+              ));
+            },
             child: Text(
               '${getLang(context, "Assignments")}',
               style: const TextStyle(
@@ -81,6 +118,7 @@ class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
                   color: ColorsAsset.kPrimary),
             ),
           ),
+
         ],
       ),
       actions: [
