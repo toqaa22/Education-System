@@ -1,8 +1,9 @@
+import 'package:education_system/auth/login/login%20page.dart';
 import 'package:education_system/teacher/features/home/row_list.dart';
 import 'package:flutter/material.dart';
 
 import '../../../shared/utils/colors.dart';
-import '../upload_material/view/add_material_page.dart';
+import '../choose_grade/choose_grade_view2.dart';
 
 
 class TeacherHomePage extends StatefulWidget {
@@ -13,7 +14,7 @@ class TeacherHomePage extends StatefulWidget {
 }
 
 class _TeacherHomePageState extends State<TeacherHomePage> {
-  Widget selectedWidget =   const AddMaterialPage();
+  Widget selectedWidget =   const ChooseGradePage2();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,7 +45,9 @@ class _TeacherHomePageState extends State<TeacherHomePage> {
                                 borderRadius: BorderRadius.circular(10),
                               ),
                             ),
-                            onPressed: (){},
+                            onPressed: (){
+                              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const LoginPage(),));
+                            },
                             child: const Text("Logout"),
                           ),
                         ],
@@ -79,6 +82,11 @@ class _TeacherHomePageState extends State<TeacherHomePage> {
                       );
                     },
                   ),
+                ),
+                const Spacer(),
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 50.0),
+                  child: Image.asset("assets/images/logo2.png"),
                 ),
               ],
             ),

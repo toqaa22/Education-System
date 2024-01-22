@@ -1,6 +1,7 @@
 import 'package:education_system/shared/utils/colors.dart';
 import 'package:flutter/material.dart';
 
+import '../../add_lesson/view/add_lesson_page.dart';
 import '../../add_quiz/view/add_quiz_page.dart';
 
 class MaterialDoalog extends StatelessWidget {
@@ -35,7 +36,7 @@ class MaterialDoalog extends StatelessWidget {
           const SizedBox(width: 16.0),
           GestureDetector(
             onTap: (){
-              // Navigator.of(context).push(MaterialPageRoute(builder: (context) => QuestionPage(),));
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) => const AddLessonPage(),));
             },
             child: Container(
               height: 100,

@@ -20,7 +20,7 @@ class QuestionPageState extends State<QuestionPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Add Questions',
+          'Add Quiz',
           style: TextStyle(color: ColorsAsset.kPrimary),
         ),
         backgroundColor: ColorsAsset.kLight2,

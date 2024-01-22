@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../upload_material/view/add_material_page.dart';
+import '../choose_grade/choose_grade_view.dart';
+import '../choose_grade/choose_grade_view2.dart';
 
 class TeacherRowList {
   final String title;
@@ -20,13 +21,16 @@ class TeacherRowList {
   static List<TeacherRowList> rowList = [
     TeacherRowList(
       isSelected: true,
-      widgetBuilder: () =>   const AddMaterialPage(),
+      widgetBuilder: () =>   const ChooseGradePage2(),
       icon: Icons.file_copy_outlined,
       title: "Upload Material",
       onTap: (context) {},
     ),
     TeacherRowList(
-      widgetBuilder: () =>    const SizedBox(),
+      widgetBuilder: () =>     const Scaffold(
+
+        body: ChooseGradePage(),
+      ),
       icon: Icons.class_outlined,
       title: "View Students",
       onTap: (context) {},

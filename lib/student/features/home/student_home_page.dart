@@ -1,5 +1,6 @@
 import 'package:carousel_indicator/carousel_indicator.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:education_system/student/features/payment/widgets/my_text_field.dart';
 import 'package:flutter/material.dart';
 
 
@@ -133,6 +134,19 @@ class StudentHomePageState extends State<StudentHomePage> {
               '${getLang(context, "A group of the most skilled professors")}',
               style: const TextStyle(fontSize: 15, color: ColorsAsset.kPrimary),
             ),
+            const SizedBox(
+              height: 10,
+            ),
+            SizedBox(
+              width: MediaQuery.of(context).size.width * 0.5,
+              child: MyTextField(
+                hintText: "Search",
+                prefixIcon: const Icon(Icons.search),
+              ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.5,
               child: ListView.builder(
@@ -147,9 +161,21 @@ class StudentHomePageState extends State<StudentHomePage> {
                           builder: (context) => const CoursePage(),
                         ));
                       },
-                      child: SizedBox(
-                        width: MediaQuery.of(context).size.width * 0.2,
-                        child: Image.asset('assets/images/teacher.png'),
+                      child: Card(
+                        elevation: 1,
+                        color: ColorsAsset.kLight2,
+                        child: SizedBox(
+                          width: MediaQuery.of(context).size.width * 0.2,
+                          height: MediaQuery.of(context).size.height * 0.08,
+
+                          child: Column(
+                            children: [
+                              Image.asset('assets/images/teacher.png'),
+                              const SizedBox(height: 15,),
+                              const Text("Course Name",style: TextStyle(color: ColorsAsset.kPrimary,fontWeight: FontWeight.bold),)
+                            ],
+                          ),
+                        ),
                       ),
                     ),
                   );

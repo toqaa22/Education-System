@@ -1,3 +1,4 @@
+import 'package:education_system/auth/login/login%20page.dart';
 import 'package:education_system/student/features/profile/widgets/parent_data.dart';
 import 'package:education_system/student/features/profile/widgets/personal_data.dart';
 import 'package:flutter/material.dart';
@@ -64,24 +65,51 @@ class _ProfilePageState extends State<ProfilePage> {
                   const PersonalData(),
                   const FamilyDataSection(),
                   const SizedBox(height: 30,),
-                  SizedBox(
-                    width: 200,
-                    child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => const EditInfoPage(),));
-                                          },
-                      style: ElevatedButton.styleFrom(
-                        foregroundColor: Colors.white,
-                        backgroundColor: ColorsAsset.kPrimary,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      SizedBox(
+                        width: 200,
+                        child: ElevatedButton(
+                          onPressed: () {
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => const EditInfoPage(),));
+                                              },
+                          style: ElevatedButton.styleFrom(
+                            foregroundColor: Colors.white,
+                            backgroundColor: ColorsAsset.kPrimary,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                          ),
+                          child: const Padding(
+                            padding: EdgeInsets.symmetric(vertical: 10.0,horizontal: 15),
+                            child: Text('Edit Data'),
+                          ),
                         ),
                       ),
-                      child: const Padding(
-                        padding: EdgeInsets.symmetric(vertical: 10.0,horizontal: 15),
-                        child: Text('Edit Data'),
+                      const SizedBox(width: 10,),
+
+                      SizedBox(
+                        width: 200,
+                        child: ElevatedButton(
+                          onPressed: () {
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => const LoginPage(),));
+                          },
+                          style: ElevatedButton.styleFrom(
+                            foregroundColor: Colors.white,
+                            backgroundColor: ColorsAsset.kPrimary,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                          ),
+                          child: const Padding(
+                            padding: EdgeInsets.symmetric(vertical: 10.0,horizontal: 15),
+                            child: Text('Logout'),
+                          ),
+                        ),
                       ),
-                    ),
+                    ],
                   ),
 
 

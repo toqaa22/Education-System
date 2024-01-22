@@ -17,7 +17,7 @@ class  RegisterPage extends StatelessWidget {
               image: DecorationImage(
                 fit: BoxFit.cover,
                 image: AssetImage(
-                    "assets/images/authbackground2.png"),
+                    "assets/images/2.png"),
               )),
         ),
         Scaffold(
@@ -45,26 +45,40 @@ class  RegisterPage extends StatelessWidget {
                         const SizedBox(height: 10,),
                         Row(
                             children: [
-                          MainTextField(
-                            hintText: "الاسم بالكامل",
+                          Flexible(
+                            child: MainTextField(
+                              hintText: "الاسم بالكامل",
+                            ),
                           ),
                           const SizedBox(width: 10,),
-                          MainTextField(
-                            hintText: "رقم الهاتف",
+                          Flexible(
+                            child: MainTextField(
+                              hintText: "رقم الهاتف",
+                            ),
                           ),
                         ]
                           ),
+                        const SizedBox(
+                          height: 10,
+                        ),
 
                         Row(
                             children: [
-                              MainTextField(
-                                hintText: "البريد الالكتروني",
+                              Flexible(
+                                child: MainTextField(
+                                  hintText: "البريد الالكتروني",
+                                ),
                               ),
                               const SizedBox(width: 10,),
-                              MainTextField(
-                                hintText: "كلمة السر",
+                              Flexible(
+                                child: MainTextField(
+                                  hintText: "كلمة السر",
+                                ),
                               ),
                             ]
+                        ),
+                        const SizedBox(
+                          height: 10,
                         ),
                         const Align(
                             alignment: Alignment.centerRight,
@@ -77,18 +91,27 @@ class  RegisterPage extends StatelessWidget {
                             children: [
 
 
-                              MainTextField(
-                                hintText: "رقم الهاتف",
+                              Flexible(
+                                child: MainTextField(
+                                  hintText: "رقم الهاتف",
+                                ),
                               ),
                               const SizedBox(width: 10,),
-                              MainTextField(
-                                hintText: "البريد الالكتروني",
+                              Flexible(
+                                child: MainTextField(
+                                  hintText: "البريد الالكتروني",
+                                ),
                               ),
                               const SizedBox(width: 10,),
-                              MainTextField(
-                                hintText: "الاسم",
+                              Flexible(
+                                child: MainTextField(
+                                  hintText: "الاسم",
+                                ),
                               ),
                             ]
+                        ),
+                        const SizedBox(
+                          height: 20,
                         ),
 
                         ElevatedButton(

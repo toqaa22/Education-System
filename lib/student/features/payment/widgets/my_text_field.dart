@@ -13,30 +13,29 @@ class MyTextField extends StatelessWidget {
   Widget? suffixIcon;
   @override
   Widget build(BuildContext context) {
-    return  Flexible(
-      child: SizedBox(
-        width: MediaQuery.of(context).size.width * 0.5,
-        child: TextField(
-          onChanged: onChanged,
-          controller: controller,
-          onSubmitted:onSubmitted ,
-          decoration: InputDecoration(
-            labelText: labeltext,
-            hintText:hintText ,
-            border: const OutlineInputBorder(
-              borderSide: BorderSide(
-                  color: ColorsAsset.kPrimary
-              ),
+    return  SizedBox(
+      width: MediaQuery.of(context).size.width * 0.5,
+      child: TextField(
+        onChanged: onChanged,
+        controller: controller,
+        onSubmitted:onSubmitted ,
+        decoration: InputDecoration(
+          prefixIcon: prefixIcon,
+          labelText: labeltext,
+          hintText:hintText ,
+          border: const OutlineInputBorder(
+            borderSide: BorderSide(
+                color: ColorsAsset.kPrimary
             ),
-            enabledBorder: const OutlineInputBorder(
-              borderSide: BorderSide(
-                  color: ColorsAsset.kPrimary
-              ),
+          ),
+          enabledBorder: const OutlineInputBorder(
+            borderSide: BorderSide(
+                color: ColorsAsset.kPrimary
             ),
-            focusedBorder: const OutlineInputBorder(
-              borderSide: BorderSide(
-                  color: ColorsAsset.kPrimary
-              ),
+          ),
+          focusedBorder: const OutlineInputBorder(
+            borderSide: BorderSide(
+                color: ColorsAsset.kPrimary
             ),
           ),
         ),

@@ -13,31 +13,33 @@ class MainTextField extends StatelessWidget {
   Widget? suffixIcon;
   @override
   Widget build(BuildContext context) {
-    return  Flexible(
-      child: SizedBox(
-        height: 70,
-        child: TextField(
-          onChanged: onChanged,
-          controller: controller,
-          onSubmitted:onSubmitted ,
-          decoration: InputDecoration(
-            labelText: labeltext,
-            hintText:hintText ,
-            hintStyle: const TextStyle(fontSize: 12),
-            border: const OutlineInputBorder(
-              borderSide: BorderSide(
-                  color: ColorsAsset.kPrimary
-              ),
+    return  SizedBox(
+      height: 40,
+      width: MediaQuery.of(context).size.width*0.3,
+      child: TextField(
+
+        onChanged: onChanged,
+        controller: controller,
+        onSubmitted:onSubmitted ,
+        decoration: InputDecoration(
+          fillColor: Colors.white,
+          filled: true,
+          labelText: labeltext,
+          hintText:hintText ,
+          hintStyle: const TextStyle(fontSize: 12),
+          border: const OutlineInputBorder(
+            borderSide: BorderSide(
+                color: ColorsAsset.kPrimary
             ),
-            enabledBorder: const OutlineInputBorder(
-              borderSide: BorderSide(
-                  color: ColorsAsset.kPrimary
-              ),
+          ),
+          enabledBorder: const OutlineInputBorder(
+            borderSide: BorderSide(
+                color: ColorsAsset.kPrimary
             ),
-            focusedBorder: const OutlineInputBorder(
-              borderSide: BorderSide(
-                  color: ColorsAsset.kPrimary
-              ),
+          ),
+          focusedBorder: const OutlineInputBorder(
+            borderSide: BorderSide(
+                color: ColorsAsset.kPrimary
             ),
           ),
         ),

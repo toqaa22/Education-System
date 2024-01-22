@@ -32,6 +32,9 @@ class AddMaterialPage extends StatelessWidget {
               return  Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: ListTile(
+                  onTap: (){
+
+                  },
                   leading: Image.asset("assets/images/icons8-study-50.png"),
                   tileColor: ColorsAsset.kLightPurble,
                   title: const Text("Lesson 1",style: TextStyle(fontWeight: FontWeight.bold,color: ColorsAsset.kTextcolor),),

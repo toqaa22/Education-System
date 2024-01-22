@@ -18,7 +18,7 @@ class LoginPage extends StatelessWidget {
               image: DecorationImage(
                 fit: BoxFit.cover,
                 image: AssetImage(
-                    "assets/images/authBackground.png"),
+                    "assets/images/1.png"),
               )),
         ),
         Scaffold(
@@ -36,6 +36,9 @@ class LoginPage extends StatelessWidget {
                   const SizedBox(height: 10,),
                   MainTextField(
                     hintText: "البريد الالكتروني",
+                  ),
+                  const SizedBox(
+                    height: 10,
                   ),
                   MainTextField(
                     hintText: "كلمة السر",
