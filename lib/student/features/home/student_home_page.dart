@@ -3,7 +3,6 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:education_system/student/features/payment/widgets/my_text_field.dart';
 import 'package:flutter/material.dart';
 
-
 import '../../../components/locale/applocale.dart';
 import '../../../shared/utils/colors.dart';
 import '../../widgets/cutom_appbar.dart';
@@ -36,41 +35,33 @@ class StudentHomePageState extends State<StudentHomePage> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Align(
-            alignment: Alignment.center,
-            child: SizedBox(
-              height: MediaQuery.of(context).size.height * 0.6,
-              width: MediaQuery.of(context).size.width,
-              child: Stack(
-                alignment: Alignment.center,
-                children: [
-                  CarouselSlider(
-                    carouselController: _carouselController,
-                    items: homeData.map((imagePath) {
-                      return Builder(
-                        builder: (BuildContext context) {
-                          return SizedBox(
-                            width: MediaQuery.of(context).size.width * 0.9,
-                            child: Image.asset(
-                              imagePath,
-                              fit: BoxFit.cover,
-                            ),
-                          );
-                        },
-                      );
-                    }).toList(),
-                    options: CarouselOptions(
-                        viewportFraction: 1,
-                        height: MediaQuery.of(context).size.height * .78,
-                        autoPlay: true,
-                        onPageChanged: (index, reason) {
-                          setState(() {
-                            _current = index;
-                          });
-                        }),
-                  ),
-                ],
-              ),
+          Expanded(
+            flex: 4,
+            child: CarouselSlider(
+              carouselController: _carouselController,
+              items: homeData.map((imagePath) {
+                return Builder(
+                  builder: (BuildContext context) {
+                    return SizedBox(
+                      width: MediaQuery.of(context).size.width * 0.9,
+                      child: Image.asset(
+                        imagePath,
+                        fit: BoxFit.contain,
+                      ),
+                    );
+                  },
+                );
+              }).toList(),
+              options: CarouselOptions(
+                  viewportFraction: 1,
+                  enlargeCenterPage: true,
+                  height: double.infinity,
+                  autoPlay: true,
+                  onPageChanged: (index, reason) {
+                    setState(() {
+                      _current = index;
+                    });
+                  }),
             ),
           ),
           const SizedBox(
@@ -136,18 +127,22 @@ class StudentHomePageState extends State<StudentHomePage> {
           const SizedBox(
             height: 10,
           ),
-          SizedBox(
-            width: MediaQuery.of(context).size.width * 0.5,
-            child: MyTextField(
-              hintText: "Search",
-              prefixIcon: const Icon(Icons.search),
-            ),
+          Row(
+            children: [
+              const Spacer(),
+              MyTextField(
+                flex: 2,
+                hintText: "Search",
+                prefixIcon: const Icon(Icons.search),
+              ),
+              const Spacer(),
+            ],
           ),
           const SizedBox(
             height: 20,
           ),
           Expanded(
-
+            flex: 3,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
               itemCount: 10,
@@ -160,18 +155,26 @@ class StudentHomePageState extends State<StudentHomePage> {
                         builder: (context) => const CoursePage(),
                       ));
                     },
-                    child: SizedBox(
-                      width: MediaQuery.of(context).size.width * 0.2,
-                      // height: MediaQuery.of(context).size.height * 0.08,
-
+                    child: Card(
+                      elevation: 1,
+                      color: ColorsAsset.kLight2,
+                      clipBehavior: Clip.antiAlias,
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          Image.asset('assets/images/teacher.png',scale: 2,),
-                          const SizedBox(height: 15,),
-                          const Text("Teacher Name",style: TextStyle(color: ColorsAsset.kPrimary,fontWeight: FontWeight.bold),),
-                          const SizedBox(height: 10,),
-                          const Text("Course Name",style: TextStyle(color: ColorsAsset.kPrimary,fontWeight: FontWeight.bold),)
+                          Expanded(
+                            child: Image.asset(
+                              'assets/images/teacher.png',
+                            ),
+                          ),
+                          const Text(
+                            "Teacher Name",
+                            style: TextStyle(color: ColorsAsset.kPrimary, fontWeight: FontWeight.bold, height: 2),
+                          ),
+                          const Text(
+                            "Course Name",
+                            style: TextStyle(color: ColorsAsset.kPrimary, fontWeight: FontWeight.bold, height: 2),
+                          )
                         ],
                       ),
                     ),
@@ -185,5 +188,3 @@ class StudentHomePageState extends State<StudentHomePage> {
     );
   }
 }
-
-
