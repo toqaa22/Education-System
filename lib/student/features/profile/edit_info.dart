@@ -13,7 +13,6 @@ class EditInfoPage extends StatelessWidget {
       "Female",
     ];
 
-    String? selectedCountry;
     String? selectedGender;
 
     void setSelectGender(String newValue) {
