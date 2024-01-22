@@ -8,18 +8,17 @@ class EditInfoPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
-    List<String> genders = ["Male", "Female",];
+    List<String> genders = [
+      "Male",
+      "Female",
+    ];
 
     String? selectedCountry;
     String? selectedGender;
 
-
     void setSelectGender(String newValue) {
       selectedGender = newValue;
-
     }
-
 
     return Scaffold(
       appBar: AppBar(
@@ -37,56 +36,68 @@ class EditInfoPage extends StatelessWidget {
       ),
       body: Column(
         children: [
-          const SizedBox(height: 20,),
+          const SizedBox(
+            height: 20,
+          ),
           const ListTile(
             title: Text("Personal Data"),
             tileColor: ColorsAsset.kLightPurble,
-            leading: Icon(Icons.person,color: ColorsAsset.kPrimary,),
-
+            leading: Icon(
+              Icons.person,
+              color: ColorsAsset.kPrimary,
+            ),
           ),
-          const SizedBox(height: 20,),
+          const SizedBox(
+            height: 20,
+          ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 30),
             child: Row(
               children: [
                 MyTextField(
-                  labeltext: "Student Name",
-
+                  labelText: "Student Name",
                 ),
-                const SizedBox(width: 10,),
-                MyTextField(labeltext: "Student ID",),
-                const SizedBox(width: 10,),
-
+                const SizedBox(
+                  width: 10,
+                ),
+                MyTextField(
+                  labelText: "Student ID",
+                ),
+                const SizedBox(
+                  width: 10,
+                ),
               ],
             ),
           ),
-          const SizedBox(height: 20,),
+          const SizedBox(
+            height: 20,
+          ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 30),
             child: Row(
               children: [
-                MyTextField(labeltext: "Phone Number",),
-                const SizedBox(width: 10,),
-                MyTextField(labeltext: "Password",),
+                MyTextField(
+                  labelText: "Phone Number",
+                ),
+                const SizedBox(
+                  width: 10,
+                ),
+                MyTextField(
+                  labelText: "Password",
+                ),
                 const SizedBox(width: 10),
                 Flexible(
                   child: DropdownButtonFormField<String>(
                     value: selectedGender,
                     decoration: const InputDecoration(
-                      border:  OutlineInputBorder(
-                        borderSide: BorderSide(
-                            color: ColorsAsset.kPrimary
-                        ),
+                      border: OutlineInputBorder(
+                        borderSide: BorderSide(color: ColorsAsset.kPrimary),
                       ),
                       enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                            color: ColorsAsset.kPrimary
-                        ),
+                        borderSide: BorderSide(color: ColorsAsset.kPrimary),
                       ),
                       focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                            color: ColorsAsset.kPrimary
-                        ),
+                        borderSide: BorderSide(color: ColorsAsset.kPrimary),
                       ),
                       labelText: 'Gender',
                     ),
@@ -104,30 +115,42 @@ class EditInfoPage extends StatelessWidget {
               ],
             ),
           ),
-          const SizedBox(height: 20,),
+          const SizedBox(
+            height: 20,
+          ),
           const ListTile(
             title: Text("Parent Data"),
             tileColor: ColorsAsset.kLightPurble,
             leading: Icon(
-              Icons.family_restroom, color: ColorsAsset.kPrimary,),),
-          const SizedBox(height: 20,),
+              Icons.family_restroom,
+              color: ColorsAsset.kPrimary,
+            ),
+          ),
+          const SizedBox(
+            height: 20,
+          ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 30),
             child: Row(
               children: [
-                MyTextField(labeltext: "Name",),
+                MyTextField(
+                  labelText: "Name",
+                ),
                 const SizedBox(width: 10),
-                MyTextField(labeltext: "Phone Number",),
-                const SizedBox(width: 10,),
-                MyTextField(labeltext: "Email",),
-
+                MyTextField(
+                  labelText: "Phone Number",
+                ),
+                const SizedBox(
+                  width: 10,
+                ),
+                MyTextField(
+                  labelText: "Email",
+                ),
               ],
             ),
           ),
-
         ],
       ),
-
     );
   }
 }

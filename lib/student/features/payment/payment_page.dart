@@ -38,9 +38,7 @@ class PaymentPage extends StatelessWidget {
                 children: <Widget>[
                   const Text(
                     "قيمة الاشتراك : 2500",
-                    style: TextStyle(
-                        color: ColorsAsset.kPrimary,
-                        fontWeight: FontWeight.bold),
+                    style: TextStyle(color: ColorsAsset.kPrimary, fontWeight: FontWeight.bold),
                   ),
                   Center(
                     child: Image.asset(
@@ -51,33 +49,38 @@ class PaymentPage extends StatelessWidget {
                   const SizedBox(height: 20),
                   MyTextField(
                     controller: cubit.cardNumberController,
-                    labeltext: 'رقم البطاقة',
-                  ),
-                  const SizedBox(height: 15,),
-                  MyTextField(
-                    controller: cubit.expiryDateController,
-                    labeltext: 'تاريخ الانتهاء',
-                  ),
-
-                  const SizedBox(height: 15,),
-                  MyTextField(
-                    controller: cubit.cardHolderNameController,
-                    labeltext: 'اسم حامل البطاقة',
-                  ),
-                  const SizedBox(height: 15,),
-                  MyTextField(
-                    controller: cubit.cvvController,
-                    labeltext: "CVV",
+                    labelText: 'رقم البطاقة',
                   ),
                   const SizedBox(
                     height: 15,
                   ),
-
+                  MyTextField(
+                    controller: cubit.expiryDateController,
+                    labelText: 'تاريخ الانتهاء',
+                  ),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  MyTextField(
+                    controller: cubit.cardHolderNameController,
+                    labelText: 'اسم حامل البطاقة',
+                  ),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  MyTextField(
+                    controller: cubit.cvvController,
+                    labelText: "CVV",
+                  ),
+                  const SizedBox(
+                    height: 15,
+                  ),
                   Align(
                     alignment: Alignment.center,
                     child: ElevatedButton(
                       onPressed: () {
-                        cubit.submitPayment(context);                    },
+                        cubit.submitPayment(context);
+                      },
                       style: ElevatedButton.styleFrom(
                         foregroundColor: Colors.white,
                         backgroundColor: ColorsAsset.kPrimary,
@@ -86,7 +89,7 @@ class PaymentPage extends StatelessWidget {
                         ),
                       ),
                       child: const Padding(
-                        padding: EdgeInsets.symmetric(vertical: 10.0,horizontal: 15),
+                        padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 15),
                         child: Text('اتمام الدفع'),
                       ),
                     ),
