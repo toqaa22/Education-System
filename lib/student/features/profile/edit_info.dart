@@ -49,20 +49,20 @@ class EditInfoPage extends StatelessWidget {
           const SizedBox(
             height: 20,
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 30),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 30),
             child: Row(
               children: [
                 MyTextField(
                   labelText: "Student Name",
                 ),
-                const SizedBox(
+                SizedBox(
                   width: 10,
                 ),
                 MyTextField(
                   labelText: "Student ID",
                 ),
-                const SizedBox(
+                SizedBox(
                   width: 10,
                 ),
               ],
@@ -75,13 +75,13 @@ class EditInfoPage extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 30),
             child: Row(
               children: [
-                MyTextField(
+                const MyTextField(
                   labelText: "Phone Number",
                 ),
                 const SizedBox(
                   width: 10,
                 ),
-                MyTextField(
+                const MyTextField(
                   labelText: "Password",
                 ),
                 const SizedBox(width: 10),
@@ -128,18 +128,18 @@ class EditInfoPage extends StatelessWidget {
           const SizedBox(
             height: 20,
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 30),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 30),
             child: Row(
               children: [
                 MyTextField(
                   labelText: "Name",
                 ),
-                const SizedBox(width: 10),
+                SizedBox(width: 10),
                 MyTextField(
                   labelText: "Phone Number",
                 ),
-                const SizedBox(
+                SizedBox(
                   width: 10,
                 ),
                 MyTextField(
