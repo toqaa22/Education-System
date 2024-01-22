@@ -13,8 +13,8 @@ class MyTextField extends StatelessWidget {
   Widget? suffixIcon;
   @override
   Widget build(BuildContext context) {
-    return  SizedBox(
-      width: MediaQuery.of(context).size.width * 0.5,
+    return  Flexible(
+
       child: TextField(
         onChanged: onChanged,
         controller: controller,

@@ -33,157 +33,154 @@ class StudentHomePageState extends State<StudentHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const CustomAppbar(),
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Align(
-              alignment: Alignment.center,
-              child: SizedBox(
-                height: MediaQuery.of(context).size.height * 0.6,
-                width: MediaQuery.of(context).size.width,
-                child: Stack(
-                  alignment: Alignment.center,
-                  children: [
-                    CarouselSlider(
-                      carouselController: _carouselController,
-                      items: homeData.map((imagePath) {
-                        return Builder(
-                          builder: (BuildContext context) {
-                            return SizedBox(
-                              width: MediaQuery.of(context).size.width * 0.9,
-                              child: Image.asset(
-                                imagePath,
-                                fit: BoxFit.cover,
-                              ),
-                            );
-                          },
-                        );
-                      }).toList(),
-                      options: CarouselOptions(
-                          viewportFraction: 1,
-                          height: MediaQuery.of(context).size.height * .78,
-                          autoPlay: true,
-                          onPageChanged: (index, reason) {
-                            setState(() {
-                              _current = index;
-                            });
-                          }),
-                    ),
-                  ],
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Align(
+            alignment: Alignment.center,
+            child: SizedBox(
+              height: MediaQuery.of(context).size.height * 0.6,
+              width: MediaQuery.of(context).size.width,
+              child: Stack(
+                alignment: Alignment.center,
+                children: [
+                  CarouselSlider(
+                    carouselController: _carouselController,
+                    items: homeData.map((imagePath) {
+                      return Builder(
+                        builder: (BuildContext context) {
+                          return SizedBox(
+                            width: MediaQuery.of(context).size.width * 0.9,
+                            child: Image.asset(
+                              imagePath,
+                              fit: BoxFit.cover,
+                            ),
+                          );
+                        },
+                      );
+                    }).toList(),
+                    options: CarouselOptions(
+                        viewportFraction: 1,
+                        height: MediaQuery.of(context).size.height * .78,
+                        autoPlay: true,
+                        onPageChanged: (index, reason) {
+                          setState(() {
+                            _current = index;
+                          });
+                        }),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          CarouselIndicator(
+            count: homeData.length,
+            index: _current,
+            color: Colors.grey,
+            activeColor: ColorsAsset.kPrimary,
+            height: 3,
+            width: 20,
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          SizedBox(
+            width: MediaQuery.of(context).size.width * 0.5,
+            child: DropdownButtonFormField<String>(
+              value: dropdownValue,
+              decoration: InputDecoration(
+                border: const OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color: ColorsAsset.kPrimary,
+                  ),
                 ),
-              ),
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            CarouselIndicator(
-              count: homeData.length,
-              index: _current,
-              color: Colors.grey,
-              activeColor: ColorsAsset.kPrimary,
-              height: 3,
-              width: 20,
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            SizedBox(
-              width: MediaQuery.of(context).size.width * 0.5,
-              child: DropdownButtonFormField<String>(
-                value: dropdownValue,
-                decoration: InputDecoration(
-                  border: const OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: ColorsAsset.kPrimary,
-                    ),
+                enabledBorder: const OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color: ColorsAsset.kPrimary,
                   ),
-                  enabledBorder: const OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: ColorsAsset.kPrimary,
-                    ),
-                  ),
-                  focusedBorder: const OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: ColorsAsset.kPrimary,
-                    ),
-                  ),
-                  labelText: '${getLang(context, "Select the academic year")}',
                 ),
-                items: dropdownItems.map((String value) {
-                  return DropdownMenuItem<String>(
-                    value: value,
-                    child: Text(value),
-                  );
-                }).toList(),
-                onChanged: (String? newValue) {
-                  setState(() {
-                    dropdownValue = newValue!;
-                  });
-                },
+                focusedBorder: const OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color: ColorsAsset.kPrimary,
+                  ),
+                ),
+                labelText: '${getLang(context, "Select the academic year")}',
               ),
+              items: dropdownItems.map((String value) {
+                return DropdownMenuItem<String>(
+                  value: value,
+                  child: Text(value),
+                );
+              }).toList(),
+              onChanged: (String? newValue) {
+                setState(() {
+                  dropdownValue = newValue!;
+                });
+              },
             ),
-            const SizedBox(
-              height: 10,
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          Text(
+            '${getLang(context, "Let's Start Now")}',
+            style: const TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: ColorsAsset.kPrimary),
+          ),
+          Text(
+            '${getLang(context, "A group of the most skilled professors")}',
+            style: const TextStyle(fontSize: 15, color: ColorsAsset.kPrimary),
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          SizedBox(
+            width: MediaQuery.of(context).size.width * 0.5,
+            child: MyTextField(
+              hintText: "Search",
+              prefixIcon: const Icon(Icons.search),
             ),
-            Text(
-              '${getLang(context, "Let's Start Now")}',
-              style: const TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: ColorsAsset.kPrimary),
-            ),
-            Text(
-              '${getLang(context, "A group of the most skilled professors")}',
-              style: const TextStyle(fontSize: 15, color: ColorsAsset.kPrimary),
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            SizedBox(
-              width: MediaQuery.of(context).size.width * 0.5,
-              child: MyTextField(
-                hintText: "Search",
-                prefixIcon: const Icon(Icons.search),
-              ),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.5,
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: 10,
-                itemBuilder: (context, index) {
-                  return Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: GestureDetector(
-                      onTap: () {
-                        Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => const CoursePage(),
-                        ));
-                      },
-                      child: Card(
-                        elevation: 1,
-                        color: ColorsAsset.kLight2,
-                        child: SizedBox(
-                          width: MediaQuery.of(context).size.width * 0.2,
-                          height: MediaQuery.of(context).size.height * 0.08,
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          Expanded(
 
-                          child: Column(
-                            children: [
-                              Image.asset('assets/images/teacher.png'),
-                              const SizedBox(height: 15,),
-                              const Text("Course Name",style: TextStyle(color: ColorsAsset.kPrimary,fontWeight: FontWeight.bold),)
-                            ],
-                          ),
-                        ),
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              itemCount: 10,
+              itemBuilder: (context, index) {
+                return Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => const CoursePage(),
+                      ));
+                    },
+                    child: SizedBox(
+                      width: MediaQuery.of(context).size.width * 0.2,
+                      // height: MediaQuery.of(context).size.height * 0.08,
+
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Image.asset('assets/images/teacher.png',scale: 2,),
+                          const SizedBox(height: 15,),
+                          const Text("Teacher Name",style: TextStyle(color: ColorsAsset.kPrimary,fontWeight: FontWeight.bold),),
+                          const SizedBox(height: 10,),
+                          const Text("Course Name",style: TextStyle(color: ColorsAsset.kPrimary,fontWeight: FontWeight.bold),)
+                        ],
                       ),
                     ),
-                  );
-                },
-              ),
+                  ),
+                );
+              },
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
