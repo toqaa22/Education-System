@@ -55,7 +55,7 @@ class AddMaterialPage extends StatelessWidget {
                 showDialog(
                   context: context,
                   builder: (BuildContext context) {
-                    return const MaterialDoalog();
+                    return const MaterialDialog();
                   },
                 );
               }, child: const Text("Add Material"))

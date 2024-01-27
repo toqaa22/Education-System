@@ -52,37 +52,39 @@ class CoursePage extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                "اسم الاستاذ بالكامل",
-                                style: TextStyle(
-                                    fontSize: 20,
-                                    color: ColorsAsset.kTextcolor),
-                              ),
-                              Text(
-                                " : الاسم",
+                                "الاسم : ",
                                 style: TextStyle(
                                     fontSize: 22,
                                     fontWeight: FontWeight.bold,
                                     color: ColorsAsset.kPrimary),
                               ),
+                              Text(
+                                "اسم الاستاذ بالكامل",
+                                style: TextStyle(
+                                    fontSize: 20,
+                                    color: ColorsAsset.kTextcolor),
+                              ),
+
                             ],
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
+                              Text(
+                                "الشهادة : ",
+                                style: TextStyle(
+                                    fontSize: 22,
+                                    fontWeight: FontWeight.bold,
+                                    color: ColorsAsset.kPrimary),
+                              ),
                               Text(
                                 "بكالوريوس في تعليم اللغة الإنجليزية",
                                 style: TextStyle(
                                     fontSize: 20,
                                     color: ColorsAsset.kTextcolor),
                               ),
-                              Text(
-                                " : الشهادة",
-                                style: TextStyle(
-                                    fontSize: 22,
-                                    fontWeight: FontWeight.bold,
-                                    color: ColorsAsset.kPrimary),
-                              ),
+
                             ],
                           ),
                           Row(
@@ -90,18 +92,59 @@ class CoursePage extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                " لديه خبرة تدريسية تزيد عن 5 سنوات في تدريس اللغة الانجليزية",
-                                style: TextStyle(
-                                    fontSize: 20,
-                                    color: ColorsAsset.kTextcolor),
-                              ),
-                              Text(
-                                " : الخبرة",
+                                "الخبرة : ",
                                 style: TextStyle(
                                     fontSize: 22,
                                     fontWeight: FontWeight.bold,
                                     color: ColorsAsset.kPrimary),
                               ),
+                              Text(
+                                " لديه خبرة تدريسية تزيد عن 5 سنوات في تدريس اللغة الانجليزية",
+                                style: TextStyle(
+                                    fontSize: 20,
+                                    color: ColorsAsset.kTextcolor),
+                              ),
+
+                            ],
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "اسم السنتر : ",
+                                style: TextStyle(
+                                    fontSize: 22,
+                                    fontWeight: FontWeight.bold,
+                                    color: ColorsAsset.kPrimary),
+                              ),
+                              Text(
+                                "اسم السنتر",
+                                style: TextStyle(
+                                    fontSize: 20,
+                                    color: ColorsAsset.kTextcolor),
+                              ),
+
+                            ],
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "رقم السنتر : ",
+                                style: TextStyle(
+                                    fontSize: 22,
+                                    fontWeight: FontWeight.bold,
+                                    color: ColorsAsset.kPrimary),
+                              ),
+                              Text(
+                                "89458934584",
+                                style: TextStyle(
+                                    fontSize: 20,
+                                    color: ColorsAsset.kTextcolor),
+                              ),
+
                             ],
                           ),
                         ],

@@ -1,10 +1,10 @@
-import 'package:education_system/shared/utils/colors.dart';
 import 'package:flutter/material.dart';
 
-import '../../add_lesson/view/add_lesson_page.dart';
-import '../../add_quiz/view/add_quiz_page.dart';
-class MaterialDialog extends StatelessWidget {
-  const MaterialDialog({super.key});
+import '../../../../shared/utils/colors.dart';
+import '../chat_page.dart';
+
+class ChatDialog extends StatelessWidget {
+  const ChatDialog({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,9 +17,7 @@ class MaterialDialog extends StatelessWidget {
               flex: 1,
               child: GestureDetector(
                 onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => const QuestionPage()),
-                  );
+                  // Navigator.of(context).push(MaterialPageRoute(builder: (context) => const QuestionPage(),));
                 },
                 child: Container(
                   width: 200,
@@ -30,9 +28,9 @@ class MaterialDialog extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Image.asset('assets/images/10.png'),
+                      Image.asset('assets/images/7.png'),
                       const Text(
-                        'Add Quiz',
+                        'Group Chat',
                         style: TextStyle(color: ColorsAsset.kPrimary, fontWeight: FontWeight.bold),
                       ),
                     ],
@@ -45,9 +43,7 @@ class MaterialDialog extends StatelessWidget {
               flex: 1,
               child: GestureDetector(
                 onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => const AddLessonPage()),
-                  );
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context) =>  const ChatPage(),));
                 },
                 child: Container(
                   width: 200,
@@ -58,9 +54,9 @@ class MaterialDialog extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Image.asset('assets/images/9.png'),
+                      Image.asset('assets/images/8.png'),
                       const Text(
-                        'Add Lesson',
+                        'Private Chat',
                         style: TextStyle(color: ColorsAsset.kPrimary, fontWeight: FontWeight.bold),
                       ),
                     ],

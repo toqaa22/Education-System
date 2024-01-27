@@ -56,7 +56,7 @@ class _AddLessonPageState extends State<AddLessonPage> {
                   ),
                   SizedBox(
                     width: MediaQuery.of(context).size.width * 0.3,
-                    child: MyTextField(
+                    child: const MyTextField(
                       hintText: "Lesson Name",
                     ),
                   )

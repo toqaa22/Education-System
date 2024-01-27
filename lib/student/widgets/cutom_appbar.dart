@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import '../../components/locale/applocale.dart';
 import '../../shared/main_cubit/main_cubit.dart';
 import '../../shared/utils/colors.dart';
+import '../features/chats/choose_chat.dart';
 import '../features/my_grades/view/my_grades_page.dart';
 import '../features/profile/profile_page.dart';
 
@@ -117,6 +118,22 @@ PreferredSizeWidget customAppBar(BuildContext context) {
           },
           child: Text(
             '${getLang(context, "Assignments")}',
+            style: const TextStyle(
+              fontSize: 12,
+              fontWeight: FontWeight.bold,
+              color: ColorsAsset.kPrimary,
+            ),
+          ),
+        ),
+        const SizedBox(width: 5),
+        TextButton(
+          onPressed: () {
+            Navigator.of(context).pushReplacement(
+              MaterialPageRoute(builder: (context) => const ChooseChatPage()),
+            );
+          },
+          child: Text(
+            '${getLang(context, "Chats")}',
             style: const TextStyle(
               fontSize: 12,
               fontWeight: FontWeight.bold,

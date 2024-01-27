@@ -1,5 +1,6 @@
 import 'package:carousel_indicator/carousel_indicator.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:education_system/student/features/home/widgets/subject_container.dart';
 import 'package:education_system/student/features/payment/widgets/my_text_field.dart';
 import 'package:flutter/material.dart';
 
@@ -136,19 +137,37 @@ class StudentHomePageState extends State<StudentHomePage> {
             const SizedBox(
               height: 10,
             ),
-            Row(
+            const Row(
               children: [
-                const Spacer(),
+                Spacer(),
                 MyTextField(
                   flex: 2,
                   hintText: "Search",
-                  prefixIcon: const Icon(Icons.search),
+                  prefixIcon: Icon(Icons.search),
                 ),
-                const Spacer(),
+                Spacer(),
               ],
             ),
             const SizedBox(
               height: 20,
+            ),
+            const Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SubjectContainer(subjectName: 'Math'),
+                SubjectContainer(subjectName: 'Science'),
+                SubjectContainer(subjectName: 'History'),
+                SubjectContainer(subjectName: 'English'),
+                SubjectContainer(subjectName: 'Geography'),
+                SubjectContainer(subjectName: 'Math'),
+                SubjectContainer(subjectName: 'Science'),
+                SubjectContainer(subjectName: 'History'),
+                SubjectContainer(subjectName: 'English'),
+                SubjectContainer(subjectName: 'Geography'),
+              ],
+            ),
+            const SizedBox(
+              height: 10,
             ),
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.5,
@@ -172,10 +191,10 @@ class StudentHomePageState extends State<StudentHomePage> {
                           child: Column(
                             children: [
                               Image.asset('assets/images/teacher.png',height:MediaQuery.of(context).size.height*0.35 ,),
-                              SizedBox(height: 10,),
-                              Text("Teacher Name"),
-                              SizedBox(height: 5,),
-                              Text("Course Name"),
+                              const SizedBox(height: 10,),
+                              const Text("Teacher Name"),
+                              const SizedBox(height: 5,),
+                              const Text("Subject Name"),
                             ],
                           ),
                         ),
