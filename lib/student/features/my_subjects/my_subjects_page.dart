@@ -10,7 +10,7 @@ class MySubjectsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomAppbar(),
+      appBar: customAppBar(context),
       body:
       Padding(
         padding: const EdgeInsets.symmetric(vertical: 12.0,horizontal: 30),

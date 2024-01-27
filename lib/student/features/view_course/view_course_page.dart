@@ -15,7 +15,7 @@ class _ViewCoursePageState extends State<ViewCoursePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomAppbar(),
+      appBar:  customAppBar(context),
       body: Row(
         children: [
           const Flexible(

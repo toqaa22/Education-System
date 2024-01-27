@@ -10,7 +10,7 @@ class MyAssigmentsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomAppbar(),
+      appBar:  customAppBar(context),
       body: ListView.builder(
         itemCount: 10,
         itemBuilder: (context, index) {
