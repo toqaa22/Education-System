@@ -1,3 +1,4 @@
+import 'package:education_system/auth/login/widgets/main_text_field.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../shared/utils/colors.dart';
@@ -10,9 +11,19 @@ class ViewStudentsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          'total students = 100',
-          style: TextStyle(color: ColorsAsset.kPrimary),
+        title: Row(
+          children: [
+            const Text(
+              'total students = 100',
+              style: TextStyle(color: ColorsAsset.kPrimary),
+            ),
+            const SizedBox(width: 30,),
+            MainTextField(
+              hintText: "Search",
+              prefixIcon: const Icon(Icons.search),
+            ),
+
+          ],
         ),
         backgroundColor: ColorsAsset.kLight2,
         actions: [
@@ -27,6 +38,7 @@ class ViewStudentsPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+
 
             SizedBox(
               height: 500,

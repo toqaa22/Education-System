@@ -2,8 +2,11 @@ import 'package:education_system/auth/login/login%20page.dart';
 import 'package:education_system/teacher/features/home/row_list.dart';
 import 'package:flutter/material.dart';
 
+import '../../../components/locale/applocale.dart';
+import '../../../shared/main_cubit/main_cubit.dart';
 import '../../../shared/utils/colors.dart';
 import '../choose_grade/choose_grade_view2.dart';
+import '../profile/teacher_profile_page.dart';
 
 
 class TeacherHomePage extends StatefulWidget {
@@ -28,27 +31,64 @@ class _TeacherHomePageState extends State<TeacherHomePage> {
                   padding: const EdgeInsets.all(8.0),
                   child: Row(
                     children: [
-                      const CircleAvatar(
-                        radius: 40,
-                        backgroundImage: AssetImage("assets/images/profile purple.png"),
+                      GestureDetector(
+                        child: const CircleAvatar(
+                          radius: 40,
+                          backgroundImage: AssetImage("assets/images/profile purple.png"),
+                        ),
+                        onTap: (){
+                          Navigator.of(context).push(MaterialPageRoute(builder: (context) =>const TeacherProfilePage() ,));
+                        },
                       ),
                       const SizedBox(width: 15,),
                       Column(
                         children: [
                           const Text("Teacher Name"),
                           const SizedBox(height: 5,),
-                          ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              foregroundColor: Colors.white,
-                              backgroundColor: ColorsAsset.kPrimary,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10),
+                          Row(
+                            children: [
+                              GestureDetector(
+                                onTap: () {
+                                  if (MainCubit.get(context).lang == "en") {
+                                    MainCubit.get(context).changeLang('ar');
+                                  } else {
+                                    MainCubit.get(context).changeLang('en');
+                                  }
+                                },
+                                child: Container(
+                                  padding: const EdgeInsets.all(8),
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    border: Border.all(color: ColorsAsset.kPrimary),
+                                    borderRadius: BorderRadius.circular(8),
+                                  ),
+                                  child: Text(
+                                    '${getLang(context, "EN")}',
+                                    style: const TextStyle(
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.bold,
+                                      color: ColorsAsset.kPrimary,
+                                    ),
+                                  ),
+                                ),
                               ),
-                            ),
-                            onPressed: (){
-                              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const LoginPage(),));
-                            },
-                            child: const Text("Logout"),
+
+                              const SizedBox(width: 3,),
+                              ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                  foregroundColor: Colors.white,
+                                  backgroundColor: ColorsAsset.kPrimary,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                ),
+                                onPressed: (){
+                                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const LoginPage(),));
+                                },
+                                child: const Text("Logout"),
+                              ),
+
+                            ],
                           ),
                         ],
                       ),
