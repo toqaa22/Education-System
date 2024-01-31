@@ -82,7 +82,7 @@ class QuestionPageState extends State<QuestionPage> {
             floatingActionButton: FloatingActionButton(
               onPressed: () {
                 if (cubit.selectedQuantity != 0) {
-                  cubit.addQuiz();
+                  cubit.addQuiz2();
                 }
               },
               child: const Text('Add Quiz'),
