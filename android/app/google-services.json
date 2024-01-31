@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1020935355775",
+    "project_id": "education-system1",
+    "storage_bucket": "education-system1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1020935355775:android:ae70c1526e8f152b9aae4a",
+        "android_client_info": {
+          "package_name": "com.example.education_system"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNx0EmKLgs7f5rGnCWb43GshehoRa27a4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
