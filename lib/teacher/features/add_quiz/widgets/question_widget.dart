@@ -4,17 +4,18 @@ import 'package:flutter/material.dart';
 import '../../../../models/question_model.dart';
 
 class QuestionWidget extends StatefulWidget {
-  final Question question;
+  final AddQuestionModel addQuestionModel;
 
-  const QuestionWidget(  this.question, {super.key}) ;
+  const QuestionWidget({required this.addQuestionModel, super.key});
 
   @override
   QuestionWidgetState createState() => QuestionWidgetState();
 }
 
 class QuestionWidgetState extends State<QuestionWidget> {
-  String? selectedAnswer;
-
+  bool option1 = false;
+  bool option2 = false;
+  bool option3 = false;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -26,73 +27,78 @@ class QuestionWidgetState extends State<QuestionWidget> {
             height: MediaQuery.of(context).size.height * 0.07,
             width: MediaQuery.of(context).size.width * 0.5,
             child: QuestionTextField(
-             hintText: "Enter Question",
-              onChanged: (value) {
-                setState(() {
-                  widget.question.question = value;
-                });
-              },
+              hintText: "Enter Question",
+              controller: widget.addQuestionModel.questionController,
             ),
           ),
           const SizedBox(height: 8.0),
           QuestionTextField(
             hintText: "Answer 1",
-            onChanged: (value) {
-              setState(() {
-                widget.question.option1 = value;
-              });
-            },
+            controller: widget.addQuestionModel.option1Controller,
           ),
           const SizedBox(height: 8.0),
           QuestionTextField(
             hintText: "Answer 2",
-            onChanged: (value) {
-              setState(() {
-                widget.question.option2 = value;
-              });
-            },
+            controller: widget.addQuestionModel.option2Controller,
           ),
           const SizedBox(height: 8.0),
           QuestionTextField(
             hintText: "Answer 3",
-            onChanged: (value) {
-              setState(() {
-                widget.question.option3 = value;
-              });
-            },
+            controller: widget.addQuestionModel.option3Controller,
           ),
           const SizedBox(height: 8.0),
           Row(
             children: [
-              Radio(
-                value: 'Option 1',
-                groupValue: selectedAnswer,
+              Checkbox(
+                value: option1,
+                shape: const CircleBorder(),
                 onChanged: (value) {
                   setState(() {
-                    selectedAnswer = value!;
-                    widget.question.correctAnswer = value;
+                    option1 = !option1;
+                    if (option1) {
+                      option2 = false;
+                      option3 = false;
+                      widget.addQuestionModel.modelAnswer = widget.addQuestionModel.option1Controller.text;
+                      print(widget.addQuestionModel.modelAnswer);
+                    } else {
+                      widget.addQuestionModel.modelAnswer = null;
+                    }
                   });
                 },
               ),
               const Text('Option 1'),
-              Radio(
-                value: 'Option 2',
-                groupValue: selectedAnswer,
+              Checkbox(
+                value: option2,
+                shape: const CircleBorder(),
                 onChanged: (value) {
                   setState(() {
-                    selectedAnswer = value;
-                    widget.question.correctAnswer = value!;
+                    option2 = !option2;
+                    if (option2) {
+                      option1 = false;
+                      option3 = false;
+                      widget.addQuestionModel.modelAnswer = widget.addQuestionModel.option2Controller.text;
+                      print(widget.addQuestionModel.modelAnswer);
+                    } else {
+                      widget.addQuestionModel.modelAnswer = null;
+                    }
                   });
                 },
               ),
               const Text('Option 2'),
-              Radio(
-                value: 'Option 3',
-                groupValue: selectedAnswer,
+              Checkbox(
+                value: option3,
+                shape: const CircleBorder(),
                 onChanged: (value) {
                   setState(() {
-                    selectedAnswer = value;
-                    widget.question.correctAnswer = value!;
+                    option3 = !option3;
+                    if (option3) {
+                      option1 = false;
+                      option2 = false;
+                      widget.addQuestionModel.modelAnswer = widget.addQuestionModel.option3Controller.text;
+                      print(widget.addQuestionModel.modelAnswer);
+                    } else {
+                      widget.addQuestionModel.modelAnswer = null;
+                    }
                   });
                 },
               ),
@@ -104,5 +110,3 @@ class QuestionWidgetState extends State<QuestionWidget> {
     );
   }
 }
-
-
