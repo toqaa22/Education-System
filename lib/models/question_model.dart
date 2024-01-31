@@ -14,4 +14,12 @@ class AddQuestionModel {
   TextEditingController option2Controller = TextEditingController();
   TextEditingController option3Controller = TextEditingController();
   String? modelAnswer;
+
+  Map<String, dynamic> toMap() => {
+        'question': questionController,
+        'option1': option1Controller,
+        'option2': option2Controller,
+        'option3': option3Controller,
+        'modelAnswer': modelAnswer,
+      };
 }
